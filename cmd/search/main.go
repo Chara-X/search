@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"time"
+	"unicode/utf8"
 
 	"github.com/Chara-X/priority"
 	"github.com/Chara-X/search"
@@ -15,8 +16,10 @@ func main() {
 	var index = search.New[string, entry]()
 	filepath.Walk(os.Args[1], func(path string, info os.FileInfo, err error) error {
 		var file, _ = os.ReadFile(path)
-		var keys = search.Keys(string(file))
-		index.Store(keys, entry{keys, path})
+		if utf8.Valid(file) {
+			var keys = search.Keys(string(file))
+			index.Store(keys, entry{keys, path})
+		}
 		return err
 	})
 	fmt.Println()
