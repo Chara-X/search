@@ -1,7 +1,5 @@
 package search
 
-import (
-	"regexp"
-)
+import "regexp"
 
 var separator = regexp.MustCompile(`[^\w]+`)
