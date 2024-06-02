@@ -3,7 +3,7 @@ package search
 import (
 	"strings"
 
-	"github.com/Chara-X/slices"
+	"github.com/Chara-X/util/slices"
 	"github.com/kljensen/snowball/english"
 )
 

@@ -26,7 +26,7 @@ func main() {
 	for scanner := bufio.NewScanner(os.Stdin); scanner.Scan(); {
 		var stopwatch = time.Now()
 		var keys = search.Keys(scanner.Text())
-		var pq = priority.New[float64, string]()
+		var pq = &priority.Queue[float64, string]{}
 		for _, v := range index.Load(keys...) {
 			pq.Push(-search.Compare(keys, v.keys), v.value)
 		}

@@ -1,6 +1,6 @@
 package search
 
-import "github.com/Chara-X/slices"
+import "github.com/Chara-X/util/slices"
 
 func Compare[T comparable](from, to []T) float64 {
 	var set, count = slices.ToSet(to), 0.0
